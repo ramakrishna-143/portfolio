@@ -1,0 +1,29 @@
+body {
+  font-family: 'Orbitron', sans-serif;
+ background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  margin: 0;
+}
+.futuristic-header {
+  height: 100vh;
+  background: url('https://images.unsplash.com/photo-1549921296-3a6b85e4f1cb?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.futuristic-header .overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 40px;
+  border-radius: 10px;
+}
+.futuristic-title {
+  font-size: 2.5rem;
+  border-bottom: 2px solid #0ff;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+.futuristic-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #0ff;
+  backdrop-filter: blur(10px);
+}
