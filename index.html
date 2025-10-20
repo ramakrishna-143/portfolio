@@ -10,14 +10,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
    <link rel="icon" href="image.png">
 </head>
-<body>
-
+<body style="background-color: #0d1117;">
   <!-- Home Section -->
-  <header class="text-center text-white futuristic-header">
+  <header class="text-center text-black futuristic-header" role="banner">
     <div class="overlay">
       <h1 class="display-4">Rama Krishna</h1>
-      <p class="lead">🚀 Future-Ready Web Developer</p>
-      <a href="#about" class="btn btn-outline-light mt-4">Explore</a>
+      <p class="lead">🚀 Future-Ready Web Developer — modern UI, clean code</p>
+      <div class="hero-ctas mt-4">
+        <a href="#projects" class="btn btn-primary-cta mr-2" aria-label="See my projects">See Projects</a>
+        <a href="#contact" class="btn btn-primary-cta mr-2" aria-label="Contact me">Contact</a>
+      </div>
     </div>
   </header>
 
@@ -34,38 +36,72 @@
   </section>
 
   <!-- Projects Section -->
-  <section class="container text-white py-5" id="projects">
+  <section class="container text-white py-4 alt-section" id="projects">
     <h2 class="text-center futuristic-title">Projects</h2>
-    <div class="row mt-4">
-      <div class="col-md-6 mb-4">
+    <div class="projects-grid mt-4">
+      <article class="project-card fade-up">
         <div class="card futuristic-card">
-          
+          <div class="card-body">
+            <h5 class="card-title">AI Tool Aggregator</h5>
+            <p class="card-text">A web app that aggregates various AI tools for easy access and management.</p>
+            <div class="card-ctas">
+              <a href="https://ramakrishna-143.github.io/Ai-Aggregator-Frontend/" class="btn btn-outline-info">Live Demo</a>
+              <a href="https://github.com/ramakrishna-143/Ai-Aggregator-Frontend.git" class="btn btn-outline-info">GitHub</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card fade-up">
+        <div class="card futuristic-card">
           <div class="card-body">
             <h5 class="card-title">Student Task Manager</h5>
             <p class="card-text">Manage your daily tasks with this futuristic to-do list app.</p>
-            <a href="https://ramakrishna-143.github.io/Student-task-manager/"class="btn btn-outline-info" >Live Demo</a>
-            <a href="https://github.com/ramakrishna-143/Student-task-manager.git" class="btn btn-outline-info">GitHub</a>
+            <div class="card-ctas">
+              <a href="https://ramakrishna-143.github.io/Student-task-manager/" class="btn btn-outline-info">Live Demo</a>
+              <a href="https://github.com/ramakrishna-143/Student-task-manager.git" class="btn btn-outline-info">GitHub</a>
+            </div>
           </div>
         </div>
-      </div>
+      </article>
+
+      <article class="project-card fade-up">
+        <div class="card futuristic-card">
+          <div class="card-body">
+            <h5 class="card-title">AI Tool Aggregator (Alt)</h5>
+            <p class="card-text">Same aggregator demo (backup/alt deployment) for testing and staging.</p>
+            <div class="card-ctas">
+              <a href="#" class="btn btn-outline-info">Live Demo</a>
+              <a href="#" class="btn btn-outline-info">GitHub</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
     </div>
   </section>
-
+  <br/>
+  <br/>
   <!-- Contact Section -->
-  <section class="container text-white py-5" id="contact">
+  <section class="container text-white py-5 alt-section" id="contact">
     <h2 class="text-center futuristic-title">Contact Me</h2>
-    <form class="mt-4">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Your Name"/>
-      </div>
-      <div class="form-group">
-        <input type="email" class="form-control" placeholder="Your Email"/>
-      </div>
-      <div class="form-group">
-        <textarea class="form-control" rows="3" placeholder="Message"></textarea>
-      </div>
-      <button class="btn btn-outline-light btn-block">Send</button>
-    </form>
+    <div class="form-card mt-4">
+      <form class="" >
+        <div class="form-group form-floating">
+          <input id="cf-name" name="name" type="text" class="form-control" placeholder="Your full name" required />
+          <label for="cf-name" class="floating"></label>
+        </div>
+        <div class="form-group form-floating">
+          <input id="cf-email" name="email" type="email" class="form-control" placeholder="you@example.com" required />
+          <label for="cf-email" class="floating"></label>
+        </div>
+        <div class="form-group form-floating">
+          <textarea id="cf-message" name="message" class="form-control" rows="4" placeholder="Write your message here..." required></textarea>
+          <label for="cf-message" class="floating"></label>
+        </div>
+        <button type="submit" class="btn btn-primary-cta btn-block"  id="scrollTopBtn">Send Message</button>
+      </form>
+    </div>
     <div class="text-center mt-3">
       <a href="https://github.com/ramakrishna-143/"><i class="fab fa-github fa-2x text-white mx-2"></i></a>
       <a href="https://www.linkedin.com/in/rama-krishna-varanasu-b5a072350?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin fa-2x text-white mx-2"></i></a>
