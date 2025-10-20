@@ -29,7 +29,7 @@ This is a personal portfolio website built using HTML, CSS, JavaScript, and Boot
 
 ## 📸 Screenshots
 
- ![home page](<Screenshot (23).png>)
- ![about page](<Screenshot (24).png>) 
- ![contact page](<Screenshot (25).png>)
+ ![home page](<>)
+ ![about page](<>) 
+ ![contact page](<>)
 
