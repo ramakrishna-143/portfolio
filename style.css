@@ -1,29 +1,299 @@
-body {
-  font-family: 'Orbitron', sans-serif;
- background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-  margin: 0;
+:root{
+  /* Light theme foundation */
+  --bg-1: #f6f8fa; /* page background base */
+  --bg-2: linear-gradient(180deg,#f6f8fa 0%, #eef3f8 100%);
+  --bg-accent-1: rgba(6,129,205,0.06);
+  --bg-accent-2: rgba(3,105,161,0.04);
+  --muted: #5f6d75; /* subdued copy color */
+  --text: #06202a; /* main text color for light theme */
+  --accent-start: #0ea5ff; /* sky blue */
+  --accent-mid: #0369a1; /* deep cyan-blue */
+  --accent-end: #0b61b8; /* deeper blue */
+  --accent-gradient: linear-gradient(90deg,var(--accent-start),var(--accent-mid),var(--accent-end));
+  --card-bg: #f8fbfa; /* slightly tinted panels to avoid stark white */
+  --glass-border: rgba(15,23,25,0.06);
+  --glass-blur: 6px;
+  --badge-info: #0ea5ff;
+  --badge-warn: #f59e0b;
+  --badge-success: #06b6d4;
+  --cta-fill: rgba(14,165,255,0.10);
+  --max-width: 1100px;
 }
-.futuristic-header {
-  height: 100vh;
-  background: url('https://images.unsplash.com/photo-1549921296-3a6b85e4f1cb?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+
+/* Typography */
+body{
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: var(--bg-2);
+  color: var(--text);
+  margin:0;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  position:relative;
+  line-height:1.45;
 }
-.futuristic-header .overlay {
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 40px;
-  border-radius: 10px;
+
+.futuristic-header{
+  height: 56vh;
+  background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(245,250,255,0.94)), url('https://images.unsplash.com/photo-1549921296-3a6b85e4f1cb?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+  display:flex;align-items:center;justify-content:center;position:relative; padding:28px;
+  background-attachment:fixed; /* parallax supported on desktop */
 }
-.futuristic-title {
-  font-size: 2.5rem;
-  border-bottom: 2px solid #0ff;
-  display: inline-block;
-  margin-bottom: 20px;
+
+.futuristic-header .overlay{
+  background: rgba(255,255,255,0.78);
+  padding: 28px 36px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(11,43,52,0.06), inset 0 1px 0 rgba(255,255,255,0.7);
+  backdrop-filter: blur(var(--glass-blur));
+  text-align:center; max-width:var(--max-width); width:96%;
 }
-.futuristic-card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid #0ff;
-  backdrop-filter: blur(10px);
+
+.futuristic-header h1{font-family: 'Orbitron', sans-serif; font-weight:700; letter-spacing:1px; font-size:48px; margin:0 0 8px 0; color:var(--text)}
+.futuristic-header p{color:var(--muted); margin:0 0 12px 0; font-size:1.05rem}
+
+.hero-ctas .btn{padding:10px 16px; font-weight:700}
+.hero-ctas .btn:first-child{box-shadow:0 18px 44px rgba(3,105,161,0.14)}
+
+.futuristic-title{font-size:2.1rem; display:inline-block; margin-bottom:20px; color:var(--text); font-weight:700; letter-spacing:0.2px; position:relative; padding-bottom:10px}
+.futuristic-title::after{content:''; display:block; height:6px; width:56px; border-radius:6px; margin:10px auto 0; background: linear-gradient(90deg, var(--accent-start), var(--accent-mid), var(--accent-end)); box-shadow:0 8px 20px rgba(5,150,105,0.06)}
+
+@media(min-width:768px){
+  .futuristic-title{font-size:2.25rem}
+}
+@media(min-width:1100px){
+  .futuristic-title{font-size:2.5rem}
+}
+
+/* Cards */
+.futuristic-card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(249,255,252,0.98));
+  border: 1px solid rgba(11,23,25,0.06);
+  border-radius:12px;
+  padding:0;
+  overflow:hidden;
+  transition: transform .32s cubic-bezier(.2,.9,.2,1), box-shadow .32s, border-color .2s;
+}
+.futuristic-card:hover{transform:translateY(-8px); box-shadow:0 18px 40px rgba(11,43,52,0.06); border-color:rgba(5,150,105,0.12)}
+
+/* Neon pulse variant applied by JS for stronger hover */
+.futuristic-card.neon{box-shadow:0 32px 110px rgba(155,89,255,0.14), inset 0 0 30px rgba(110,240,255,0.03); border-color:rgba(110,240,255,0.12)}
+.futuristic-card.neon::after{content:''; position:absolute; inset:6px; border-radius:10px; box-shadow:0 0 36px rgba(255,92,168,0.08); pointer-events:none}
+.futuristic-card .card-body{padding:22px}
+.card-title{font-weight:700; color:var(--text)}
+.card-text{color:var(--muted); margin-bottom:14px}
+
+/* Buttons */
+.btn-outline-info{color:var(--accent-mid); border-color:rgba(5,150,105,0.12); background:transparent}
+.btn-outline-info:hover{background:var(--cta-fill); border-color:var(--accent-mid); box-shadow:0 8px 40px rgba(16,185,129,0.06)}
+
+/* Filled CTA variant for stronger attention */
+.btn-primary-cta{background:var(--accent-gradient); color:#ffffff; border:none; box-shadow:0 10px 36px rgba(5,150,105,0.12);}
+.btn-primary-cta:hover{filter:brightness(.98); transform:translateY(-2px)}
+
+/* Animated neon outline for CTAs */
+.btn-outline-info, .btn-primary-cta{
+  position:relative; overflow:visible; transition:transform .18s ease, box-shadow .18s ease;
+}
+.btn-outline-info::after, .btn-primary-cta::after{
+  content:''; position:absolute; inset:-6px; border-radius:12px; pointer-events:none; opacity:0; transform:scale(0.98);
+  background: linear-gradient(90deg, rgba(155,89,255,0.22), rgba(110,240,255,0.18), rgba(255,92,168,0.16));
+  filter: blur(12px);
+  transition:opacity .22s ease, transform .22s ease;
+}
+.btn-outline-info:hover::after, .btn-primary-cta:hover::after,
+.btn-outline-info:focus::after, .btn-primary-cta:focus::after{
+  opacity:1; transform:scale(1);
+}
+
+/* Strong visible focus for keyboard users */
+.user-is-tabbing .btn-outline-info:focus, .user-is-tabbing .btn-primary-cta:focus{
+  box-shadow:0 8px 36px rgba(155,89,255,0.12), 0 2px 8px rgba(110,240,255,0.06);
+  outline:none;
+}
+
+/* Small pulse animation for primary CTAs */
+.btn-primary-cta.pulse{animation:ctaPulse 2.8s infinite ease-in-out}
+@keyframes ctaPulse{0%{transform:translateY(0) scale(1)}50%{transform:translateY(-2px) scale(1.01)}100%{transform:translateY(0) scale(1)}}
+
+/* Layout tweaks */
+section{padding-top:48px; padding-bottom:48px}
+.section-sep{border-top:1px solid rgba(11,23,25,0.03); margin-top:24px; padding-top:28px}
+
+/* Text blocks: wider measure for readability */
+section p{font-size:1.06rem; line-height:1.68; max-width:72ch; margin-left:auto; margin-right:auto; color:var(--text)}
+
+/* Alternating section background: soft tint to avoid stark white panels */
+.alt-section{background: linear-gradient(180deg, rgba(241,250,245,0.95), rgba(248,251,249,0.92)); padding-top:28px; padding-bottom:28px; border-radius:12px; border:1px solid rgba(6,128,106,0.04); box-shadow:0 6px 18px rgba(11,23,25,0.02)}
+
+/* Floating label pattern */
+.form-group.form-floating{position:relative}
+.form-group.form-floating .form-control{padding:18px 14px 12px}
+.form-group.form-floating label.floating{position:absolute; left:14px; top:50%; transform:translateY(-50%); transition:all .16s ease; pointer-events:none; color:var(--muted); background:transparent; padding:0 6px}
+.form-group.form-floating .form-control:focus + label.floating,
+.form-group.form-floating .form-control:not(:placeholder-shown) + label.floating{
+  top:8px; transform:none; font-size:0.78rem; color:var(--accent-mid); background:var(--card-bg);
+}
+.container{max-width:1100px}
+
+/* Project grid: show 2 per row on md+ */
+@media(min-width:768px){
+  .col-md-6{width:48%; display:inline-block; vertical-align:top; margin-right:2%}
+  .col-md-6:nth-child(2n){margin-right:0}
+}
+
+/* Projects grid styles */
+.projects-grid{display:grid; grid-template-columns:1fr; gap:18px; margin-top:12px}
+@media(min-width:768px){.projects-grid{grid-template-columns:repeat(2,1fr); gap:20px}}
+@media(min-width:1100px){.projects-grid{grid-template-columns:repeat(3,1fr); gap:22px}}
+
+.project-card{display:block}
+.project-card .card{height:100%; display:flex; flex-direction:column; transition:transform .26s ease, box-shadow .26s ease}
+.project-card:hover .card{transform:translateY(-8px); box-shadow:0 26px 76px rgba(98,12,140,0.10)}
+.card-ctas{margin-top:auto; display:flex; gap:10px}
+.card-ctas .btn{padding:8px 12px; font-weight:600; border-radius:8px}
+
+/* small icon style for header/socials */
+.fab{opacity:0.95; color:var(--text)}
+
+/* focus visible for keyboard users */
+.user-is-tabbing .btn:focus{outline:3px solid rgba(24,165,88,0.22); outline-offset:3px}
+
+/* small utilities: adapt text helper to current theme (light background) */
+.text-white{color:var(--text) !important}
+
+/* Outline light modifier (used in header) - ensure contrast on light overlay */
+.btn-outline-light{color:var(--text); border-color:rgba(11,23,25,0.06); background:transparent}
+.btn-outline-light:hover{background:rgba(16,185,129,0.06); border-color:var(--accent-mid)}
+
+/* screen-reader only helper */
+.sr-only{position:absolute!important; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0}
+
+/* subtle entrance */
+.fade-up{opacity:0; transform:translateY(10px); transition:opacity .6s ease, transform .6s ease}
+.fade-up.is-visible{opacity:1; transform:none}
+
+/* Footer/contact spacing */
+form .form-control{background:linear-gradient(180deg, rgba(250,250,252,1), rgba(245,248,250,1)); border:1px solid rgba(11,23,25,0.06); color:var(--text); padding:12px 14px; border-radius:10px; box-shadow:inset 0 1px 0 rgba(255,255,255,0.6)}
+
+/* Contact form card (wrap the form with .form-card in HTML) */
+#contact .form-card{background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(250,255,252,0.96)); border:1px solid rgba(6,128,106,0.06); padding:20px; border-radius:14px; box-shadow:0 10px 30px rgba(11,23,25,0.03)}
+
+/* Placeholder visibility for inputs and textarea */
+.form-control::placeholder{color:rgba(234,246,239,0.82); opacity:1; font-style:italic; transition:color .18s ease, opacity .18s ease}
+.form-control:-ms-input-placeholder{color:rgba(234,246,239,0.82)}
+.form-control::-ms-input-placeholder{color:rgba(234,246,239,0.82)}
+.form-control::-webkit-input-placeholder{color:rgba(234,246,239,0.82)}
+.form-control:-moz-placeholder{color:rgba(234,246,239,0.82); opacity:1}
+.form-control::-moz-placeholder{color:rgba(234,246,239,0.82); opacity:1}
+
+/* Match textarea placeholder and comfortable padding */
+textarea.form-control{min-height:120px; resize:vertical}
+textarea.form-control::placeholder{color:rgba(234,246,239,0.6); opacity:1}
+textarea.form-control::placeholder{color:rgba(234,246,239,0.82); font-style:italic; transition:color .18s ease, opacity .18s ease}
+
+/* Fade placeholder slightly on focus to emphasize typed text */
+.form-control:focus::placeholder{color:rgba(234,246,239,0.46)}
+.form-control:focus::-webkit-input-placeholder{color:rgba(234,246,239,0.46)}
+.form-control:focus:-ms-input-placeholder{color:rgba(234,246,239,0.46)}
+.form-control:focus::-ms-input-placeholder{color:rgba(234,246,239,0.46)}
+.form-control:focus:-moz-placeholder{color:rgba(234,246,239,0.46)}
+.form-control:focus::-moz-placeholder{color:rgba(234,246,239,0.46)}
+
+/* Card accent bar */
+.futuristic-card::before{content:''; position:absolute; left:0; top:0; bottom:0; width:6px; background:var(--accent-gradient); border-top-left-radius:12px; border-bottom-left-radius:12px}
+
+/* Badges */
+.badge-info{background:var(--badge-info); color:#062929}
+.badge-warning{background:var(--badge-warn); color:#3a2a02}
+.badge-success{background:var(--badge-success); color:#062929}
+
+/* Social icons hover */
+.fab{transition:transform .18s ease, filter .18s ease}
+.fab:hover{transform:translateY(-4px); filter:drop-shadow(0 8px 24px rgba(0,0,0,0.45))}
+
+/* Animated radial glow behind content for subtle depth */
+body::after{
+  content:'';
+  position:fixed; inset:0; z-index:-1; pointer-events:none;
+  background: radial-gradient(900px 600px at 12% 18%, rgba(16,185,129,0.06), transparent 14%), radial-gradient(800px 480px at 84% 76%, rgba(5,150,105,0.04), transparent 18%);
+  mix-blend-mode:screen; opacity:0.9; transition:opacity .35s ease;
+  animation: glowShift 14s ease-in-out infinite;
+}
+
+/* Subtle animated noise overlay for texture */
+body::before{
+  content:''; position:fixed; inset:0; z-index:-1; pointer-events:none;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><filter id="n"><feTurbulence baseFrequency="0.18" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0.05"/></filter><rect width="100%" height="100%" filter="url(%23n)" opacity="0.02"/></svg>');
+  mix-blend-mode:overlay; opacity:0.18; animation:noiseShift 30s linear infinite;
+}
+
+@keyframes noiseShift{from{transform:translateY(0)} to{transform:translateY(-30px)}}
+
+@keyframes glowShift{
+  0%{transform:translateY(0) scale(1)}
+  50%{transform:translateY(-12px) scale(1.02);}
+  100%{transform:translateY(0) scale(1)}
+}
+
+/* Improved focus for form controls */
+.form-control:focus{box-shadow:0 8px 28px rgba(24,165,88,0.08); border-color:rgba(24,165,88,0.28); outline:none}
+
+/* Stronger primary submit style (overrides for .btn-primary-cta when used as submit) */
+.btn-primary-cta.btn-block{display:inline-block; padding:12px 16px; border-radius:10px}
+.btn-primary-cta.btn-block:hover{transform:translateY(-2px); box-shadow:0 22px 64px rgba(16,185,129,0.18)}
+
+/* Brighten badges and project card shadows */
+.badge-info{box-shadow:0 6px 18px rgba(14,165,164,0.06)}
+.project-card:hover .card{box-shadow:0 32px 86px rgba(11,23,25,0.07)}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.001s !important; animation-iteration-count:1 !important; transition-duration:0.001s !important}
+}
+
+/* Dark theme overrides removed in revert */
+
+.form-control:focus::placeholder {
+  color: rgba(0, 0, 0, 0.35);
+}
+/* Inputs and Textareas — dark placeholder color */
+.form-control::placeholder,
+textarea.form-control::placeholder {
+  color: rgba(0, 0, 0, 0.6); /* Dark gray, clearly visible */
+  opacity: 1;
+  font-style: italic; /* Optional — gives a soft style */
+}
+
+/* Browser compatibility */
+.form-control:-ms-input-placeholder,
+textarea.form-control:-ms-input-placeholder {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.form-control::-ms-input-placeholder,
+textarea.form-control::-ms-input-placeholder {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.form-control::-webkit-input-placeholder,
+textarea.form-control::-webkit-input-placeholder {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.form-control:-moz-placeholder,
+textarea.form-control:-moz-placeholder {
+  color: rgba(0, 0, 0, 0.6);
+  opacity: 1;
+}
+
+.form-control::-moz-placeholder,
+textarea.form-control::-moz-placeholder {
+  color: rgba(0, 0, 0, 0.6);
+  opacity: 1;
+}
+
+/* On focus — slightly fade placeholder for a clean look */
+.form-control:focus::placeholder,
+textarea.form-control:focus::placeholder {
+  color: rgba(0, 0, 0, 0.35);
 }
