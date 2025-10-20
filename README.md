@@ -23,9 +23,8 @@ This is a personal portfolio website built using HTML, CSS, JavaScript, and Boot
 - Bootstrap 4
 - Vanilla JavaScript
  
-## name / intern id
+## name
 - rama krishna varanasu
-- SSTIMS250501
 
 ## 📸 Screenshots
 
